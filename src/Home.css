@@ -1,15 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&display=swap');
-
+body {
+    font-family: 'Inter', sans-serif;
+}
 
 .first-lighn{
-    h1{
-        font-size: 80px;
-    }
-    h4{
-        font-size: 10px;
-    }
-    /* font-style: ''; */
+    margin-bottom: -30px;
     display: flex;
     justify-content: space-around;
+    h1{
+        font-size: 100px;
+    }
+    h4{
+        margin-top: 60px;
+        font-size: 14px;
+        margin-right: 9rem;
+    }
+}
+
+.desc{
+    display: flex;
+    justify-content: column;
+    font-size: 100px;
+    h2{
+        margin-bottom: -30px;
+    }
+    /* position: center; */
 }

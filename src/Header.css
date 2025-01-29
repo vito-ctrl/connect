@@ -1,6 +1,6 @@
-h1,h4{
+h1,h4,h2{
     color: aliceblue;
 }
-.nav-bar{
-    margin-left: 10rem;
+#a-header{
+    margin: 20px;
 }
