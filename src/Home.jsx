@@ -1,32 +1,75 @@
-import './Home.css';
+import { useEffect } from "react"; 
+import gsap from "gsap"; 
+// import ScrollTrigger from "gsap/ScrollTrigger"; 
+import "./Home.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
-    return(
+    // effect for the AYMANE
+    useEffect(() => {
+        gsap.to("#first-name", {
+            scrollTrigger: {
+                trigger: "#first-name",
+                start: "top top",
+                end: "bottom",
+                // markers: true,
+                scrub: 1,
+                toggleActions: "play reverse play reverse"
+            },
+            x: 200,
+            duration: 3
+        });
+    }, []);
+    // effect for the KHADRAOUI
+    useEffect(() => {
+        gsap.to("#last-name", {
+            scrollTrigger: {
+                trigger: "#last-name",
+                start: "top top",
+                end: "bottom",
+                // markers: true,
+                scrub: 1,
+                toggleActions: "play reverse play reverse"
+            },
+            x: -200,
+            duration: 3
+        });
+    }, []);
+    // effect for the DEVLOPER DESIGHNER
+    useEffect(() => {
+        gsap.to("#devl", {
+            scrollTrigger: {
+                trigger: "#devl",
+                start: "top top",
+                end: "bottom",
+                // markers: true,
+                scrub: 1,
+                toggleActions: "play reverse play reverse"
+            },
+            x: -200,
+            duration: 3
+        });
+    }, []);
+
+    return (
         <>
-            <div class="colume">
-                <div class='first-lighn'>
-                    <h1>AYMANE</h1>
-                    <h1>✧</h1>
-                    {/* <img src="" alt="" /> */}
-                    <h4>Transforming ideas into vibrant realities, one pixel at a time</h4>
+            <div className="colume"> 
+                <div className='first-lighn'>
+                    <h1 id="first-name">AYMANE✧</h1>
+                    <h4>Transforming ideas into vibrant <br/> realities, one pixel at a time</h4>
                 </div>
-                <div class='first-lighn'>
-                    <h4>Crafting the Digital Canvas - Where Design Meets Development.</h4>
-                    <h1>✶</h1>
-                    <h1>EL</h1>
-                </div>
-                <div class='first-lighn'>
-                    <h1>KHADRAOUI</h1>
-                    <h4>Contact Me If You Found Better</h4>
+                <div className='first-lighn'>
+                    <h4>Crafting the Digital Canvas - Where Design <br/> Meets Development.</h4>
+                    <h1 id="last-name">☘︎ KHADRAOUI</h1>
                 </div>
             </div>
-            <div class='desc'>
-                <h2>⨠DEVLOPER</h2>
+            <div className='desc'> 
+                <h2 id="devl">⨠DEVLOPER</h2>
                 <h1>❋DESIGNER</h1>
             </div>
-                
         </>
-    )
+    );
 }
 
 export default Home

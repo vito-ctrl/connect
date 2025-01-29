@@ -20,10 +20,14 @@ body {
 
 .desc{
     display: flex;
-    justify-content: column;
+    flex-direction: column;
+    text-align: center;
     font-size: 100px;
     h2{
         margin-bottom: -30px;
+    }
+    h1{
+        margin-left: 10rem;
     }
     /* position: center; */
 }
