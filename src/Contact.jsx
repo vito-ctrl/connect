@@ -5,6 +5,47 @@ import { Field, Label, Switch } from '@headlessui/react'
 export default function Example() {
   const [agreed, setAgreed] = useState(false)
 
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [errors, setErrors] = useState({});
+
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
+    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+    if (!formData.phone.match(/^\d{10}$/)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      // Process form
+      console.log('Form submitted:', formData);
+    }
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className="isolate bg-black px-6 py-24 sm:py-32 lg:px-8">
       <div
@@ -23,21 +64,21 @@ export default function Example() {
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl">Contact sales</h2>
         <p className="mt-2 text-lg/8 text-gray-600">Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
       </div>
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
+      <form onSubmit={handleSubmit} method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm/6 font-semibold text-gray-600">
+            <label htmlFor="firtName" className="block text-sm/6 font-semibold text-gray-600">
               First Name
             </label>
             <div className="mt-2.5">
               <input
-                id="company"
-                name="company"
-                type="text"
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
                 placeholder="First Name"
-                autoComplete="organization"
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                className={`${errors.firstName ? 'outline-red-500' : ''} block w-full rounded-md bg-gray-900 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600`}
               />
+               {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -46,13 +87,13 @@ export default function Example() {
             </label>
             <div className="mt-2.5">
               <input
-                id="company"
-                name="company"
-                type="text"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
                 placeholder="Last Name"
-                autoComplete="organization"
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                className={`${errors.lastName ? 'outline-red-500' : ''} block w-full rounded-md bg-gray-900 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600`}
               />
+              {errors.lastName && <p className='text-red-500 text-sm mt-1'>{errors.lastName}</p>}
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -61,13 +102,14 @@ export default function Example() {
             </label>
             <div className="mt-2.5">
               <input
-                id="email"
                 name="email"
-                type="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Example@gmail.com"
-                autoComplete="email"
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-600 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                autoComplete="gmail.com"
+                className={`${errors.email ? 'outline-red-500' : ''} block w-full rounded-md bg-gray-900 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600`}
               />
+              {errors.email && <p className='text-red-500 text-sm mt-1'>{errors.email}</p>}
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -75,7 +117,7 @@ export default function Example() {
               Phone number
             </label>
             <div className="mt-2.5">
-              <div className="flex rounded-md bg-white outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+              <div className="flex rounded-md bg-gray-900 outline-1 -outline-offset-1 outline-gray-900 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
                 <div className="grid shrink-0 grid-cols-1 focus-within:relative">
                   <select
                     id="country"
@@ -95,13 +137,14 @@ export default function Example() {
                   />
                 </div>
                 <input
-                  id="phone-number"
-                  name="phone-number"
-                  type="text"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   placeholder="123-456-7890"
-                  className="block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+                  className={`block w-full rounded-md bg-gray-900 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600`}
                 />
               </div>
+                  {errors.phone && <p className='text-red-500 text-sm mt-1'>{errors.phone}</p>}
             </div>
           </div>
           <div className="sm:col-span-2">
@@ -110,13 +153,14 @@ export default function Example() {
             </label>
             <div className="mt-2.5">
               <textarea
-                id="message"
                 name="message"
-                placeholder="Enter your message "
-                rows={4}
-                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                defaultValue={''}
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Enter your message"
+                rows={3}
+                className={`${errors.message ? 'outline-red-500' : ''} block w-full rounded-md bg-gray-900 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-gray-900 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600`}
               />
+              {errors.message && <p className='text-red-500 text-sm mt-1'>{errors.message}</p>}
             </div>
           </div>
         </div>

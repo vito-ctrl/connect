@@ -5,7 +5,7 @@ function Projects(){
     return( 
         <>
             <div className='list-project'>
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-gray-700">
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-black">
                     <a href="#">
                         <img class="rounded-t-lg" src={pimage} alt="" />
                     </a>
@@ -23,7 +23,7 @@ function Projects(){
                     </div>
                 </div>
 
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-gray-700">
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-black">
                     <a href="#">
                         <img class="rounded-t-lg" src={pimage} alt="" />
                     </a>
@@ -41,7 +41,7 @@ function Projects(){
                     </div>
                 </div>
 
-                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-gray-700">
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-black dark:border-black">
                     <a href="#">
                         <img class="rounded-t-lg" src={pimage} alt="" />
                     </a>

@@ -4,7 +4,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'HOME', href: '#', current: false },
+  { name: 'HOME', href: 'src\Home.jsx', current: false },
   { name: 'WORK', href: '#', current: false },
   { name: 'CONTACT', href: '#', current: false },
   { name: 'ABOUT ME', href: '#', current: false },
@@ -79,4 +79,3 @@ export default function Example() {
   )
 }
 
-// export default Header;
