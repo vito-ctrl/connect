@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Giga:wght@100..900&family=Lilita+One&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
-#me{
+#me {
     font-size: 6rem;
     font-family: "Lexend Giga", serif;
     font-optical-sizing: auto;
@@ -14,17 +14,8 @@
     font-family: "Bebas Neue", serif;
     font-weight: 100;
     font-style: normal;
-    #how_iam{
-        margin-top: -60px;
-    }
-    #UI{
-        margin-right: 1 0rem;
-    }
-    margin-left: 50rem;
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-around;
-    
 }
 .UI{
     color: aliceblue;

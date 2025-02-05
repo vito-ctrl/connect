@@ -1,10 +1,9 @@
+import './styles/whatIdo.css'
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import './styles/Motivation.css'
 
-function Motivation (){
-
+function WhatIdo(){
     const sectionRef = useRef(null);
   
     useEffect(() => {
@@ -45,18 +44,21 @@ function Motivation (){
 
     return(
         <>
+            <div className='whatIdo'>
+                <h1 id='whatI'>What ❣ I ☘︎ Do</h1>
+                <h5 id='build'>I can build any website you can imagine from <br />informational & portfolio websites to business sites <br />or eCommerce using</h5>
+                <h5 id='build'>the latest tools for a smooth and up-to-date experience</h5>
+            </div>
             <section 
                 ref={sectionRef} 
                 className="min-h-screen flex items-center justify-center bg-black p-4"
             >
             <h1 className="full-stack text-4xl text-white">
-            Need a hand with your digital project or tech <br />
-            infrastructure? I'm a full-stack developer who loves <br /> 
-            a good challenge. Let's chat!
+            As a full-stack developer driven by <br /> technology, I provide tailored digital <br />solutions that align with client needs for <br />impactful and valuable outcomes.
             </h1>
             </section>
         </>
     )
 }
 
-export default Motivation;
+export default WhatIdo;

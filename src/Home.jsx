@@ -46,7 +46,7 @@ function Home() {
                     });
                     
                     element.innerHTML = scrambledLines.join('<br />');
-                    counters = counters.map(c => c + 0.5);
+                    counters = counters.map(c => c + 1);
                 }
             });
         }
@@ -72,7 +72,7 @@ function Home() {
             let counters = textLines.map(() => 0);
             
             gsap.to({}, {
-                duration: 2,
+                duration: 4,
                 onUpdate: () => {
                     const scrambledLines = textLines.map((line, lineIndex) => {
                         return line
@@ -85,7 +85,7 @@ function Home() {
                     });
                     
                     element.innerHTML = scrambledLines.join('<br />');
-                    counters = counters.map(c => c + 0.5);
+                    counters = counters.map(c => c + 1);
                 }
             });
         }
