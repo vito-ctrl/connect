@@ -30,7 +30,7 @@ function Motivation (){
           start: "top center",
           end: "center center",
           scrub: 1,
-        //   markers: true,
+          // markers: true,
         },
         color: "black",
         stagger: {

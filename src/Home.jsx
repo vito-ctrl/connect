@@ -134,7 +134,7 @@ function Home() {
 
     return (
         <>
-            <div className="colume"> 
+            <div className="colume" id="homee"> 
                 <div className='first-lighn'>
                     <h1 id="first-name">AYMANE✧</h1>
                     <h4 id="deteals">Transforming ideas into vibrant <br/> realities, one pixel at a time</h4>

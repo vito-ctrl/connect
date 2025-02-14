@@ -1,13 +1,12 @@
 import './styles/Header.css';
-
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'HOME', href: 'src\Home.jsx', current: false },
-  { name: 'WORK', href: '#', current: false },
-  { name: 'CONTACT', href: '#', current: false },
-  { name: 'ABOUT ME', href: '#', current: false },
+  { name: 'HOME', href: 'homee', current: false },
+  { name: 'ME', href: 'moi', current: false },
+  { name: 'PROJECTS', href: 'proo', current: false },
+  { name: 'CONTACT', href: 'con', current: false },
 ]
 
 function classNames(...classes) {
@@ -16,9 +15,9 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-black">
+    <Disclosure as="nav" className=" fixed w-full top-0 z-50 backdrop-blur-md">
       <div id="a-header" className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div className="relative flex h-16 items-center justify-between">
+        <div className="relative flex h-12 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
@@ -41,7 +40,7 @@ export default function Example() {
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    href={`#${item.href}`}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-black hover:text-white',
@@ -63,7 +62,7 @@ export default function Example() {
             <DisclosureButton
               key={item.name}
               as="a"
-              href={item.href}
+              href={`#${item.href}`}
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -78,4 +77,3 @@ export default function Example() {
     </Disclosure>
   )
 }
-

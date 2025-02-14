@@ -22,6 +22,9 @@ function Footer(){
                             <li>
                                 <a href="https://tailwindcss.com/" class="hover:underline">Work</a>
                             </li>
+                            <li>
+                                <a href="https://tailwindcss.com/" class="hover:underline">Contact</a>
+                            </li>
                         </ul>
                     </div>
                     <div>

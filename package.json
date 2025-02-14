@@ -15,9 +15,10 @@
     "@heroicons/react": "^2.2.0",
     "boxicons": "^2.1.4",
     "gsap": "^3.12.7",
-    "npx": "^3.0.0",
+    "npx": "^10.2.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.1.5",
     "react-toggle-dark-mode": "^1.1.1"
   },
   "devDependencies": {
@@ -31,8 +32,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
-    "postcss": "^8.5.1",
-    "tailwindcss": "^4.0.1",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.6",
     "vite": "^6.0.5"
   }
 }

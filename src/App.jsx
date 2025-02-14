@@ -1,3 +1,5 @@
+import { Routes, Route } from "react-router-dom"; 
+import React from "react";
 import Example from './Header.jsx';
 import Footer from './Footer.jsx';
 import Home from './Home.jsx';
@@ -8,23 +10,27 @@ import WhatIdo from './whatIdo.jsx';
 import Pic from './pic.jsx';
 import Contact from './contact.jsx';
 import Projects from './Projects.jsx';
+import DispCont from "./DispCont.jsx";
 // import ScrambleText from './Scrumble.jsx';
 
 function App() {
   return(
-    <>
-      <Example/>
-      <Home/>
-      {/* <Scroling/> */}
-      <Motivation/>
-      <Me/>
-      <Pic/>
-      <WhatIdo/>
-      <Projects/>
-      <Contact/>
-      {/* <ScrambleText/> */}
-      <Footer/>
-    </>
+      <Routes>
+      <Route path="/DispCont" element={<DispCont />} />
+      <Route path="/" element={
+        <>
+          <Example/>
+          <Home/>
+          <Motivation/>
+          <Me/>
+          <Pic/>
+          <WhatIdo/>
+          <Projects/>
+          <Contact/>
+          <Footer/>
+        </>
+      } />
+    </Routes>
   );
 }
 

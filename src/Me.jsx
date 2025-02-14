@@ -87,7 +87,7 @@ function Me() {
 
 
     return(
-        <div className='that_Me'>
+        <div className='that_Me' id='moi'>
             <h1 id='me'>ME●</h1>
             <div ref={colomeRef} className='colome'>
                 <h5>Specializing in Full-Stack </h5>

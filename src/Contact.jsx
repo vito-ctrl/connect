@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 import { Field, Label, Switch } from '@headlessui/react'
+import {Link} from "react-router-dom"
 
 export default function Example() {
   const [agreed, setAgreed] = useState(false)
@@ -12,6 +13,37 @@ export default function Example() {
     phone: '',
     message: ''
   });
+
+  const collectData = async (e) => {
+    e.preventDefault();
+    try {
+        let result = await fetch('http://localhost:4000/', {
+            method: 'post',
+            body: JSON.stringify({
+                username: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+                phone: formData.phone,
+                message: formData.message
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        });
+        result = await result.json();
+        console.log("Success:", result);
+        // Clear form after successful submission
+        setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            message: ''
+        });
+    } catch (error) {
+        console.error("Error:", error);
+    }
+};
+
   const [errors, setErrors] = useState({});
 
   const validateForm = () => {
@@ -34,10 +66,9 @@ export default function Example() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Process form
-      console.log('Form submitted:', formData);
+        collectData(e);
     }
-  };
+};
 
   const handleChange = (e) => {
     setFormData({
@@ -47,7 +78,7 @@ export default function Example() {
   };
 
   return (
-    <div className="isolate bg-black px-6 py-24 sm:py-32 lg:px-8">
+    <div className="isolate bg-black px-6 py-24 sm:py-32 lg:px-8" id='con'>
       <div
         aria-hidden="true"
         className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
@@ -171,6 +202,14 @@ export default function Example() {
           >
             Let's talk
           </button>
+          <Link to="/DispCont">
+            <button
+              type="button" // Changed from submit to avoid form submission
+              className="block w-full rounded-md bg-gray-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              display messages
+            </button>
+          </Link>
         </div>
       </form>
     </div>
